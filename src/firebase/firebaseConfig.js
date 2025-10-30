@@ -1,5 +1,6 @@
 // Firebase SDK에서 필요한 함수 불러오기
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore"; 
 
 // Firebase 프로젝트 설정 (네가 Firebase에서 받은 설정값이야!)
 const firebaseConfig = {
@@ -15,5 +16,9 @@ const firebaseConfig = {
 // Firebase 초기화
 const app = initializeApp(firebaseConfig);
 
-// 다른 파일에서 Firebase를 쓸 수 있게 내보내기
+const db = getFirestore(app);
+
+console.log("✅ Firebase 연결 성공! DB 객체:", db);
+
+export { db };
 export default app;
